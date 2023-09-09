@@ -40,4 +40,4 @@ public:
 	long long GetCorrectZero(int F, int B);
 };
 
-void Execute();
+void Execute_1019();

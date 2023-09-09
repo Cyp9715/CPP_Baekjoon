@@ -1,7 +1,5 @@
-#include <iostream>
-#include "1019.hpp"
+#include "15649.hpp"
 
-int main()
-{
-	Execute();
+int main() {
+    Execute_15649();
 }

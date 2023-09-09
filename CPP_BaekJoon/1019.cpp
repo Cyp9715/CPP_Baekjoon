@@ -205,7 +205,7 @@ long long NumberCorrect::GetCorrectZero(int F, int B)
 }
 
 
-void Execute()
+void Execute_1019()
 {
 	int N;
 	std::vector<int> number;

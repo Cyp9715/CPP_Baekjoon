@@ -5,13 +5,15 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="1019">
+      <UniqueIdentifier>{df1f44e9-ca48-4149-a7fa-a757c495a7e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="15649">
+      <UniqueIdentifier>{74278278-ea02-4eec-9eb7-b057b6808418}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -19,12 +21,18 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="1019.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>1019</Filter>
+    </ClCompile>
+    <ClCompile Include="15649.cpp">
+      <Filter>15649</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="1019.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>1019</Filter>
+    </ClInclude>
+    <ClInclude Include="15649.hpp">
+      <Filter>15649</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
