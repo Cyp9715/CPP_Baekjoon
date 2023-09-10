@@ -23,22 +23,16 @@ void dfs(int cnt)
         return;
     }
 
-    /*
-    * 재귀함수겸 실질적인 DFS 로직, 
-    * 
-    * visited 변수는 visited 되었는지 확인함.
-    * arr[cnt] 는 i 값을 할당함.
-    * dfs 는 재귀함수로직.
-    */
-
+    // 1 부터 n 까지 숫자중 아직 선택되지 않은 숫자를 선택한다.
     for (int i = 1; i <= n; i++)
     {
+        // 숫자 i 가 아직 선택되지 않았다면
         if (visited[i] == false)
         {
-            visited[i] = true;
-            arr[cnt] = i;
-            dfs(cnt + 1);
-            visited[i] = false;
+            visited[i] = true;  // 숫자 i 를 선택했다고 표시
+            arr[cnt] = i;       // arr[] 의 cnt 위치헤 숫자 i 를 저장
+            dfs(cnt + 1);       // 다음 숫자를 선택하기 위해 재귀적으로 호출
+            visited[i] = false; // 현재 선택한 숫자 i 를 선택하지 않았다고 표시, (이러면 다음 순열 생성 시 이 숫자를 다시 사용 가능)
         }
     }
 }
