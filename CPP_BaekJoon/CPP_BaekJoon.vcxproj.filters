@@ -15,6 +15,33 @@
     <Filter Include="15649">
       <UniqueIdentifier>{74278278-ea02-4eec-9eb7-b057b6808418}</UniqueIdentifier>
     </Filter>
+    <Filter Include="3273">
+      <UniqueIdentifier>{97c227f2-95b8-4505-92f2-18c703a188b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2292">
+      <UniqueIdentifier>{0d71a19a-9468-4a6c-b706-50821266d08a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="1009">
+      <UniqueIdentifier>{19b4fb6c-85cd-4e16-86c3-2c17c52b22b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="19942">
+      <UniqueIdentifier>{7a8fecf7-9b22-4988-b505-b754215cf27f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="1305">
+      <UniqueIdentifier>{83ad6bb9-9b8b-466e-a42a-654cd356118d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2166">
+      <UniqueIdentifier>{50cf4aec-06c4-4ff1-821f-7e762e90864b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="1260">
+      <UniqueIdentifier>{8bb8fb52-bcf0-4092-8ff1-7c76ae2e0537}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="14501">
+      <UniqueIdentifier>{d39a52a2-d454-4d66-9620-2ad854163a0d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2002">
+      <UniqueIdentifier>{47f05a16-e445-4c18-b929-c8e27e2c5b57}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -26,13 +53,32 @@
     <ClCompile Include="15649.cpp">
       <Filter>15649</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="1019.hpp">
-      <Filter>1019</Filter>
-    </ClInclude>
-    <ClInclude Include="15649.hpp">
-      <Filter>15649</Filter>
-    </ClInclude>
+    <ClCompile Include="3273.cpp">
+      <Filter>3273</Filter>
+    </ClCompile>
+    <ClCompile Include="2292.cpp">
+      <Filter>2292</Filter>
+    </ClCompile>
+    <ClCompile Include="19942.cpp">
+      <Filter>19942</Filter>
+    </ClCompile>
+    <ClCompile Include="1305.cpp">
+      <Filter>1305</Filter>
+    </ClCompile>
+    <ClCompile Include="2166.cpp">
+      <Filter>2166</Filter>
+    </ClCompile>
+    <ClCompile Include="1260.cpp">
+      <Filter>1260</Filter>
+    </ClCompile>
+    <ClCompile Include="14501.cpp">
+      <Filter>14501</Filter>
+    </ClCompile>
+    <ClCompile Include="2002.cpp">
+      <Filter>2002</Filter>
+    </ClCompile>
+    <ClCompile Include="1009.cpp">
+      <Filter>1009</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

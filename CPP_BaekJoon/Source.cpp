@@ -1,5 +1,8 @@
-#include "15649.hpp"
+#include <iostream>
+#include "14501.cpp"
 
-int main() {
-    Execute_15649();
+int main() 
+{
+	backjoon_14501 bj;
+	bj.run();
 }

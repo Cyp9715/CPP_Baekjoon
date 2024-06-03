@@ -1,230 +1,177 @@
-#include "1019.hpp"
+ï»¿#include <iostream>
+#include <vector>
+#include <cmath>
+#include <string>
 
-void counting(int N)
+// ë³´ì •ë˜ì§€ ì•Šì€ ê° ìˆ«ìë³„ ë¹ˆë„ìˆ˜ë¥¼ ì¶”ì¶œí•˜ëŠ” í´ë˜ìŠ¤.
+
+class backjoon_1019
 {
-	long long zero = 0;
-	long long one = 0;
-	long long two = 0;
-	long long three = 0;
-	long long four = 0;
-	long long five = 0;
-	long long six = 0;
-	long long seven = 0;
-	long long eight = 0;
-	long long nine = 0;
+public:
 
-	for (int i = 1; i <= N; ++i)
-	{
-		int temp = i;
-		int digit;
+    class NumberFrequency
+    {
+    public:
+        std::vector<std::vector<int>> GetFrequency(const std::vector<int>& numbers)
+        {
+            std::vector<std::vector<int>> frequencies;
 
-		while (temp != 0)
-		{
-			digit = temp % 10;
-			temp = temp / 10;
+            for (int i = static_cast<int>(numbers.size()); i > 0; --i)
+            {
+                std::vector<int> frequency(10);
 
-			switch (digit)
-			{
-			case 0:
-				++zero;
-				break;
+                int t_zero = GetZero(numbers[i - 1], i);
+                int t_above = GetAbove(numbers[i - 1], i);
+                int t_under = GetUnder(numbers[i - 1], i);
 
-			case 1:
-				++one;
-				break;
+                // number[i-1]ë³´ë‹¤ í° ì¸ë±ìŠ¤ì— t_aboveë¥¼ ë”í•˜ê¸°
+                for (int j = numbers[i - 1] + 1; j <= 9; j++) {
+                    frequency[j] = t_above;
+                }
 
-			case 2:
-				++two;
-				break;
+                // ê°™ì€ ì¸ë±ìŠ¤ì— t_above + 1 ë§Œí¼ ë”í•˜ê¸°
+                frequency[numbers[i - 1]] = t_above + 1;
 
-			case 3:
-				++three;
-				break;
+                // number[i-1]ë³´ë‹¤ ì‘ì€ ì¸ë±ìŠ¤ì— t_underë¥¼ ë”í•˜ê¸°
+                for (int j = 1; j < numbers[i - 1]; j++) {
+                    frequency[j] = t_under;
+                }
 
-			case 4:
-				++four;
-				break;
+                // frequency[0] ì— t_zero ë§Œí¼ ë”í•˜ê¸°
+                frequency[0] = t_zero;
 
-			case 5:
-				++five;
-				break;
+                frequencies.push_back(frequency);
+            }
 
-			case 6:
-				++six;
-				break;
+            return frequencies;
+        }
 
-			case 7:
-				++seven;
-				break;
+    private:
+        // F ê·¸ ìì²´ëŠ” GetAboveF() + 1 
+        int GetAbove(int F, int B)
+        {
+            if (B <= 1)
+            {
+                return 0;
+            }
 
-			case 8:
-				++eight;
-				break;
+            return (F * static_cast<int>(round(pow(10, B - 1)))) / 10 * (B - 1);
+        }
 
-			case 9:
-				++nine;
-				break;
-			}
-		}
-	}
+        // except for zero
+        int GetUnder(int F, int B)
+        {
+            if (B <= 1)
+            {
+                return 1;
+            }
 
-	printf("%lld %lld %lld %lld %lld %lld %lld %lld %lld %lld\r\n", zero, one, two, three, four, five, six, seven, eight, nine);
-}
+            return (F + 10) * static_cast<int>(round(pow(10, B - 2))) + F * static_cast<int>(round(pow(10, B - 2))) * (B - 2);
+        }
 
+        int GetZero(int F, int B)
+        {
+            if (F == 0)
+            {
+                return 0;
+            }
 
-std::vector<std::vector<int>> NumberFrequency::GetFrequency(const std::vector<int>& numbers)
-{
-	std::vector<std::vector<int>> frequencies;
+            return (B - 2) * static_cast<int>(round(pow(10, B - 2))) + (B - 2) -
+                (static_cast<int>(round(pow(10, B - 2))) - 1) / 9 + 1 +
+                (F - 1) * (B - 1) * static_cast<int>(round(pow(10, B - 2)));
+        }
+    };
 
-	for (int i = numbers.size(); i > 0; --i)
-	{
-		std::vector<int> frequency(10);
+    // ê° ìˆ«ìë³„ ë¹ˆë„ìˆ˜ë¥¼ ë³´ì •í•˜ê¸° ìœ„í•œ í´ë˜ìŠ¤.
+    class NumberCorrect
+    {
+    public:
+        std::vector<int> GetCorrectFrequency(const std::vector<int>& numbers, const std::vector<std::vector<int>>& frequencies)
+        {
+            std::vector<int> correctFrequency(10);
 
-		auto t_zero = GetZero(numbers[i - 1], i);
-		auto t_above = GetAbove(numbers[i - 1], i);
-		auto t_under = GetUnder(numbers[i - 1], i);
+            int correctFrequency_zero = 0;
+            auto correctFrequency_other = GetCorrect(numbers, frequencies);
 
+            for (int i = 0; i < frequencies.size(); ++i)
+            {
+                for (int j = 0; j < 10; ++j)
+                {
+                    correctFrequency[j] += frequencies[i][j];
+                }
+            }
 
-		// number[i-1]º¸´Ù Å« ÀÎµ¦½º¿¡ t_above¸¦ ´õÇÏ±â
-		for (int j = numbers[i - 1] + 1; j <= 9; j++) {
-			frequency[j] = t_above;
-		}
+            for (int i = 0; i < 10; ++i)
+            {
+                correctFrequency[i] += correctFrequency_other[i];
+            }
 
-		// °°Àº ÀÎµ¦½º¿¡ t_above + 1 ¸¸Å­ ´õÇÏ±â
-		frequency[numbers[i - 1]] = t_above + 1;
+            for (int i = static_cast<int>(numbers.size()) - 2; i > 0; --i)
+            {
+                correctFrequency_zero += GetCorrectZero(numbers[i], i + 1);
+            }
 
-		// number[i-1]º¸´Ù ÀÛÀº ÀÎµ¦½º¿¡ t_under¸¦ ´õÇÏ±â
-		for (int j = 1; j < numbers[i - 1]; j++) {
-			frequency[j] = t_under;
-		}
+            correctFrequency[0] += correctFrequency_zero;
 
-		// frequency[0] ¿¡ t_zero ¸¸Å­ ´õÇÏ±â
-		frequency[0] = t_zero;
+            return correctFrequency;
+        }
 
-		frequencies.push_back(frequency);
-	}
+    public:
+        std::vector<int> GetCorrect(const std::vector<int>& numbers, const std::vector<std::vector<int>>& frequencies)
+        {
+            std::vector<int> correctFrequency(10);
 
-	return frequencies;
-}
- 
-long long NumberFrequency::GetAbove(int F, int B)
-{
-	if (B <= 1)
-	{
-		return 0;
-	}
+            for (int i = static_cast<int>(numbers.size()) - 1; i >= 0; --i)
+            {
+                for (int j = i - 1; j >= 0; --j)
+                {
+                    correctFrequency[numbers[i]] += numbers[j] * static_cast<int>(round(pow(10, j)));
+                }
+            }
 
-	return static_cast<long long>((F * round(pow(10, B - 1))) / 10 * (B - 1));
-}
+            return correctFrequency;
+        }
 
-long long NumberFrequency::GetUnder(int F, int B)
-{
-	if (B <= 1)
-	{
-		return 1;
-	}
+        int GetCorrectZero(int F, int B)
+        {
+            int result = 0;
 
-	return static_cast<long long>((F + 10) * round(pow(10, B - 2)) + F * round(pow(10, B - 2)) * (B - 2));
-}
+            if (F == 0)
+            {
+                return 0;
+            }
 
-long long NumberFrequency::GetZero(int F, int B)
-{
-	if (F == 0)
-	{
-		return 0;
-	}
+            for (int i = 1; i <= B - 1; ++i)
+            {
+                result += static_cast<int>(pow(10, i));
+            }
 
-	return static_cast<long long>((B - 2) * round(pow(10, B - 2)) + (B - 2) -
-		(round(pow(10, B - 2)) - 1) / 9 + 1 +
-		(F - 1) * (B - 1) * round(pow(10, B - 2)));
-}
+            result -= B - 1;
+            return result;
+        }
+    };
 
+    void run()
+    {
+        int N;
+        std::vector<int> number;
+        std::vector<std::vector<int>> frequencies;
 
-std::vector<int> NumberCorrect::GetCorrectFrequency(const std::vector<int>& numbers, const std::vector<std::vector<int>>& frequencies)
-	{
-		std::vector<int> correctFrequency(10);
+        NumberFrequency nf;
+        NumberCorrect nc;
 
-		int correctFrequency_zero = 0;
-		auto correctFrequency_other = GetCorrect(numbers, frequencies);
+        std::cin >> N;
 
-		for (int i = 0; i < frequencies.size(); ++i)
-		{
-			for (int j = 0; j < 10; ++j)
-			{
-				correctFrequency[j] += frequencies[i][j];
-			}
-		}
+        while (N != 0)
+        {
+            number.push_back(N % 10);
+            N /= 10;
+        }
 
-		for (int i = 0; i < 10; ++i)
-		{
-			correctFrequency[i] += correctFrequency_other[i];
-		}
+        frequencies = nf.GetFrequency(number);
+        auto totalFrequency = nc.GetCorrectFrequency(number, frequencies);
 
-
-		for (int i = numbers.size() - 2; i > 0; --i)
-		{
-			correctFrequency_zero += GetCorrectZero(numbers[i], i + 1);
-		}
-
-		correctFrequency[0] += correctFrequency_zero;
-
-		return correctFrequency;
-	}
-
-std::vector<int> NumberCorrect::GetCorrect(const std::vector<int>& numbers, const std::vector<std::vector<int>>& frequencies)
-{
-	std::vector<int> correctFrequency(10);
-
-	for (int i = numbers.size() - 1; i >= 0; --i)
-	{
-		for (int j = i - 1; j >= 0; --j)
-		{
-			correctFrequency[numbers[i]] += numbers[j] * round(pow(10, j));
-		}
-	}
-
-	return correctFrequency;
-}
-
-long long NumberCorrect::GetCorrectZero(int F, int B)
-{
-	long long result = 0;
-
-	if (F == 0)
-	{
-		return 0;
-	}
-
-	for (int i = 1; i <= B - 1; ++i)
-	{
-		result += pow(10, i);
-	}
-
-	result -= B - 1;
-	return result;
-}
-
-
-void Execute_1019()
-{
-	int N;
-	std::vector<int> number;
-	std::vector<std::vector<int>> frequencies;
-
-	NumberFrequency nf;
-	NumberCorrect nc;
-
-	std::cin >> N;
-
-	while (N != 0)
-	{
-		number.push_back(N % 10);
-		N /= 10;
-	}
-
-	frequencies = nf.GetFrequency(number);
-	auto totalFrequency = nc.GetCorrectFrequency(number, frequencies);
-
-	printf("%d %d %d %d %d %d %d %d %d %d", totalFrequency[0], totalFrequency[1], totalFrequency[2], totalFrequency[3], totalFrequency[4],
-		totalFrequency[5], totalFrequency[6], totalFrequency[7], totalFrequency[8], totalFrequency[9]);
-}
+        printf("%d %d %d %d %d %d %d %d %d %d", totalFrequency[0], totalFrequency[1], totalFrequency[2], totalFrequency[3], totalFrequency[4],
+            totalFrequency[5], totalFrequency[6], totalFrequency[7], totalFrequency[8], totalFrequency[9]);
+    }
+};
