@@ -132,6 +132,7 @@
     <ClCompile Include="1019.cpp" />
     <ClCompile Include="1260.cpp" />
     <ClCompile Include="1305.cpp" />
+    <ClCompile Include="1343.cpp" />
     <ClCompile Include="14501.cpp" />
     <ClCompile Include="15649.cpp" />
     <ClCompile Include="19942.cpp" />
@@ -139,7 +140,7 @@
     <ClCompile Include="2166.cpp" />
     <ClCompile Include="2292.cpp" />
     <ClCompile Include="3273.cpp" />
-    <ClCompile Include="Source.cpp" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

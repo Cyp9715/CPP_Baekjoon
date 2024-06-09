@@ -1,8 +1,8 @@
 #include <iostream>
-#include "14501.cpp"
+#include "1343.cpp"
 
 int main() 
 {
-	backjoon_14501 bj;
+	backjoon_1343 bj;
 	bj.run();
 }

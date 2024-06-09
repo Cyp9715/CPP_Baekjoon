@@ -2,13 +2,10 @@
 #include <string>
 #include <vector>
 
-using namespace std;
-
 class backjoon_1305
 {
 public:
-
-    int getPI_cyp(string& str)
+    int getPI_cyp(std::string& str)
     {
         int len = static_cast<int>(str.length());
         int pre = 0;
@@ -40,13 +37,13 @@ public:
     }
 
 
-    int getPI_example(string& str)
+    int getPI_example(std::string& str)
     {
         int len = static_cast<int>(str.length());
         int pre = 0;
         int pos = 1;
 
-        vector<int> table;
+        std::vector<int> table;
 
         table.resize(len);
 
@@ -67,15 +64,14 @@ public:
         return table[len - 1];
     }
 
-
     void run()
     {
         int len;
-        string str;
+        std::string str;
 
-        cin >> len >> str;
+        std::cin >> len >> str;
         //cout << len - getPI_cyp(str) << std::endl;
-        cout << len - getPI_example(str);
+        std::cout << len - getPI_example(str);
 
     }
 };
