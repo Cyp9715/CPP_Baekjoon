@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 
 class backjoon_1343
 {

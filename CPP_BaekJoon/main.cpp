@@ -1,5 +1,5 @@
 #include <iostream>
-#include "1343.cpp"
+#include "1343.hpp"
 
 int main() 
 {
