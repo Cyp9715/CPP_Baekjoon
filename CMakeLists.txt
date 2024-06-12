@@ -1,15 +1,30 @@
-﻿# CMakeList.txt : Top-level CMake project file, do global configuration
-# and include sub-projects here.
-#
-cmake_minimum_required (VERSION 3.8)
+﻿cmake_minimum_required(VERSION 3.8)
 
-# Enable Hot Reload for MSVC compilers if supported.
-if (POLICY CMP0141)
-  cmake_policy(SET CMP0141 NEW)
-  set(CMAKE_MSVC_DEBUG_INFORMATION_FORMAT "$<IF:$<AND:$<C_COMPILER_ID:MSVC>,$<CXX_COMPILER_ID:MSVC>>,$<$<CONFIG:Debug,RelWithDebInfo>:EditAndContinue>,$<$<CONFIG:Debug,RelWithDebInfo>:ProgramDatabase>>")
+project(CPP_BeakJoon LANGUAGES CXX)
+
+# Set output directories
+
+
+# Add source to this project's executable.
+add_executable (
+    CPP_BeakJoon
+    "main.cpp"
+    "1009.cpp"
+    "1019.cpp"
+    "1260.cpp"
+    "1305.cpp"
+    "1343.cpp"
+    "2002.cpp"
+    "2166.cpp"
+    "2292.cpp"
+    "3273.cpp"
+    "14501.cpp"
+    "15649.cpp"
+    "19942.cpp"
+)
+
+if (CMAKE_VERSION VERSION_GREATER 3.12)
+  set_property(TARGET CPP_BeakJoon PROPERTY CXX_STANDARD 20)
 endif()
 
-project ("CPP_BeakJoon")
-
-# Include sub-projects.
-add_subdirectory ("CPP_BeakJoon")
+# TODO: Add tests and install targets if needed.
