@@ -1,30 +1,29 @@
-﻿cmake_minimum_required(VERSION 3.8)
+﻿cmake_minimum_required(VERSION 3.12)
 
 project(CPP_BeakJoon LANGUAGES CXX)
 
+# set source directories
+set(SOURCE "./Source")
+
 # Set output directories
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}")
 
-
-# Add source to this project's executable.
 add_executable (
     CPP_BeakJoon
-    "main.cpp"
-    "1009.cpp"
-    "1019.cpp"
-    "1260.cpp"
-    "1305.cpp"
-    "1343.cpp"
-    "2002.cpp"
-    "2166.cpp"
-    "2292.cpp"
-    "3273.cpp"
-    "14501.cpp"
-    "15649.cpp"
-    "19942.cpp"
+    "${SOURCE}/main.cpp"
+    "${SOURCE}/1009.cpp"
+    "${SOURCE}/1019.cpp"
+    "${SOURCE}/1260.cpp"
+    "${SOURCE}/1305.cpp"
+    "${SOURCE}/1343.cpp"
+    "${SOURCE}/2002.cpp"
+    "${SOURCE}/2166.cpp"
+    "${SOURCE}/2292.cpp"
+    "${SOURCE}/3273.cpp"
+    "${SOURCE}/14501.cpp"
+    "${SOURCE}/15649.cpp"
+    "${SOURCE}/19942.cpp"
 )
 
-if (CMAKE_VERSION VERSION_GREATER 3.12)
-  set_property(TARGET CPP_BeakJoon PROPERTY CXX_STANDARD 20)
-endif()
-
-# TODO: Add tests and install targets if needed.
+# after add_executable
+set_property(TARGET CPP_BeakJoon PROPERTY CXX_STANDARD 20)
