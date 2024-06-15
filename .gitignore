@@ -1,4 +1,8 @@
+# directory
 .vs/
 .vscode/
 out/
 build/
+
+# file
+main.cpp
