@@ -22,6 +22,8 @@ public:
 
         while (!q.empty()) 
         {
+            x = q.front().first; 
+            y = q.front().second;
             q.pop();
 
             // 북, 남, 서, 동 반복.
