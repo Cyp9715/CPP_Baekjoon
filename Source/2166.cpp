@@ -2,7 +2,7 @@
 #include <vector>
 #include <math.h>
 
-class backjoon_2166
+class baekjoon_2166
 {
 public:
 

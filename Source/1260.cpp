@@ -5,7 +5,7 @@
 // 간선의 개수는 10,000 개 미만임.
 // map 을 기준으로 1,000 x 1,000 = 1,000,000 의 간선 지정이 가능.
 
-class backjoon_1260
+class baekjoon_1260
 {
 public:
     static constexpr int MAX = 1001;

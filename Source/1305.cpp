@@ -2,7 +2,7 @@
 #include <string>
 #include <vector>
 
-class backjoon_1305
+class baekjoon_1305
 {
 public:
     int getPI_cyp(std::string& str)

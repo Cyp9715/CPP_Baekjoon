@@ -1,7 +1,7 @@
 ﻿#include <iostream>
 #define MAX 16
 
-class backjoon_14501
+class baekjoon_14501
 {
 public:
 

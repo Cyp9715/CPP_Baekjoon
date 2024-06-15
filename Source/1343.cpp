@@ -1,6 +1,6 @@
 #include <iostream>
 
-class backjoon_1343
+class baekjoon_1343
 {
 public:
     int run()

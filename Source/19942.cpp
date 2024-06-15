@@ -5,8 +5,7 @@
 
 using namespace std;
 
-
-class backjoon_19942
+class baekjoon_19942
 {
 public:
 

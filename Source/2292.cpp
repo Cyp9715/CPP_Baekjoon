@@ -2,7 +2,7 @@
 
 using namespace std;
 
-class backjoon_2292
+class baekjoon_2292
 {
 public:
     void run()

@@ -79,9 +79,3 @@ public:
         }
     }
 };
-
-int main()
-{
-    baekjoon_1012_bfs bfs;
-    bfs.run();
-}

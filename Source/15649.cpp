@@ -2,7 +2,7 @@
 
 using namespace std;
 
-class backjoon_15649
+class baekjoon_15649
 {
 public:
     static const int constexpr MAX = 9;

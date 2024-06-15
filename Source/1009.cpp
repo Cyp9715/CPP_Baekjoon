@@ -4,7 +4,7 @@ using namespace std;
 
 using uint = unsigned int;
 
-class backjoon_1009
+class baekjoon_1009
 {
 public:
     void run()

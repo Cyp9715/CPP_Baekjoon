@@ -1,7 +1,7 @@
 ﻿#include <iostream>
 #include <vector>
 
-class backjoon_2002
+class baekjoon_2002
 {
 public:
 

@@ -4,7 +4,7 @@
 
 using namespace std;
 
-class backjoon_3273
+class baekjoon_3273
 {
 public:
 

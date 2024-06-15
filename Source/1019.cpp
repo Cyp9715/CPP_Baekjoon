@@ -5,7 +5,7 @@
 
 // 보정되지 않은 각 숫자별 빈도수를 추출하는 클래스.
 
-class backjoon_1019
+class baekjoon_1019
 {
 public:
 
