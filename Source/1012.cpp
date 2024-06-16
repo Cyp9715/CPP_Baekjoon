@@ -9,7 +9,7 @@ public:
     static const int MAX = 50;
     int field[MAX][MAX];
     bool visited[MAX][MAX];
-    int directions[4][2] = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}}; // 북, 남, 서, 동
+    int directions[4][2] = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}}; // 서, 동, 남, 북
     int M, N, K;
 
     // 핵심 키워드는 bfs를 통해서 visited를 기록하는것.
@@ -26,7 +26,7 @@ public:
             y = q.front().second;
             q.pop();
 
-            // 북, 남, 서, 동 반복.
+            // 서, 동, 남, 북 반복.
             for (int i = 0; i < 4; ++i) 
             {
                 int nx = x + directions[i][0];
@@ -100,7 +100,7 @@ public:
     {
         visited[x][y] = true;
 
-        // 북, 남, 동, 서 반복
+        // 서, 동, 남, 북 반복
         for(int i = 0; i < 4; ++i)
         {
             int nx = x + directions[i][0];
