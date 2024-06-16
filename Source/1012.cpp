@@ -12,7 +12,7 @@ public:
     int directions[4][2] = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}}; // 서, 동, 남, 북
     int M, N, K;
 
-    // 핵심 키워드는 bfs를 통해서 visited를 기록하는것.
+    // 핵심은 bfs를 통해서 visited를 기록하는것.
     // 이를 통해 wormcount를 통제할 수 있음.
     void bfs(int x, int y) 
     {
@@ -94,7 +94,7 @@ public:
     int directions[4][2] = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}}; // 북, 남, 서, 동
     int M, N, K;
 
-    // 핵심 키워드는 dfs 를 통해서 visited를 기록하는것.
+    // 핵심은 dfs 를 통해서 visited를 기록하는것.
     // 이미 dfs를 진입할 때, visited, field를 체크하기에 별도 체크 X.
     void dfs(int x, int y)
     {
