@@ -92,6 +92,7 @@ public:
                 // 이미 방문했으면 카운팅되었기에 bfs 돌릴 필요도 없음.
                 if (!visited[i] && bfs(i))
                 {
+                    // bfs 에서 true 를 반환하면 cycle 을 형성한 permutation 이기에 count 증가.
                     ++count;
                 }
             }
@@ -172,6 +173,7 @@ public:
                 // 이미 방문했으면 카운팅되었기에 dfs 돌릴 필요도 없음.
                 if (!visited[i] && dfs(i))
                 {
+                    // dfs 에서 true 를 반환하면 cycle 을 형성한 permutation 이기에 count 증가.
                     ++count;
                 }
             }
