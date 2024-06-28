@@ -34,7 +34,7 @@ public:
 
                 // 경사로 limitPoint를 지정함.
                 if(i + L * 2 > line.size())
-                    limitPoint = line.size();
+                    limitPoint = static_cast<int>(line.size());
                 else
                     limitPoint = i + L * 2;
 
