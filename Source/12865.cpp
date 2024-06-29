@@ -112,20 +112,35 @@ public:
         // row : item, column : weight
         for(int i = 1; i <= N; i++) // item
         {
-            for(int w = 1; w <= K; w++) // weight
+            for(int j = 1; j <= K; j++) // weight
             {
-                // 만약 가용가능한 weight가 기록된 이전 개별물품 weight 보다 크다면
-                if(W[i] <= w) 
-                {  
-                    dp[i][w] = std::max(dp[i-1][w], dp[i-1][w-W[i]] + V[i]);
+                // 현재 아이템 W[i]를 현재 무게 제한 j 내에 넣을수 있는지 확인
+                if(W[i] <= j)
+                {
+                    // 현재 아이템을 선택하지 않았을 경우 최대 가치 dp[i-1][j] 와
+                    // 현재 아이템을 선택하였을 때의 최대 가치 dp[i-1][j-W[i]] + V[i]를
+                    // 비교하여 더 큰 값을 dp[i][j] 에 삽입하여 저장한다.
+                    dp[i][j] = std::max(dp[i-1][j], dp[i-1][j-W[i]] + V[i]);
                 }
                 // 만약 이전 weight가 현재 weight 보다 크다면
-                else 
+                else
                 {
                     // 저장된 이전 weight를 현재 weight 로 장착.
-                    dp[i][w] = dp[i-1][w];
+                    dp[i][j] = dp[i-1][j];
                 }
             }
+
+            // for(auto row : dp)
+            // {
+            //     for(auto value : row)
+            //     {
+            //         std::cout << value << " ";
+            //     }
+
+            //     std::cout << std::endl;
+            // }
+
+            // std::cout << "------------" << std::endl;
         }
         
         std::cout << dp[N][K] << std::endl;
