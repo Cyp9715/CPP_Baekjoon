@@ -18,7 +18,7 @@ public:
         for (int& num : m) 
             std::cin >> num;
 
-        d[0] = m[0]; // 첫번쨰 m 을 d[0] 에 할당.
+        d[0] = m[0]; // 첫번째 m을 d[0] 에 할당.
         int max_sum = d[0]; // max_sum 역시 d[0] 로 초기화.
 
         // dynamic programming 의 핵심적인 역할을 수행하는 for 문
