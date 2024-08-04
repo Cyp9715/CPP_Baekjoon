@@ -17,62 +17,54 @@ class baekjoon_28215
 
     int calculate()
     {
-        // KOI 마을의 집들의 위치와 설치할 대피소의 개수가 주어질 때, 
-        // 대피소를 설치하는 모든 방법 중 가장 가까운 대피소와 집 사이의 거리 중 
-        // 가장 큰 값이 가장 작을 때의 거리를 구해라.
-
-        // 즉 모든 경우에 수에서 가장 가까운 대피소와 집 사이의 거리중, 가장 먼 값이 작을 때의 거리.
-        // 최적의 대피소 분포를 구하라.
-
-        // => 조합 돌려서 최소거리 대피소 구하고.
-        // 그 중 가장 큰값들 찾아서, 또 그중에서 작은거 걸러야됨.
         vector<int> mask(location.size(), 0);
         fill(mask.end() - K, mask.end(), 1);
-
-        int max_distance = 0;
-        int min_distance = INT_MAX;
+        int result = INT_MAX;
 
         do
         {
-            vector<pair<int, int>> exit; // 대피소 조합
+            vector<pair<int, int>> exits; // 임시 대피소 조합식을 담아둘 vector
 
-            // 조합 돌려서 가장 먼 집 찾아야됨.
-            for (auto i = 0; i < location.size(); ++i)
+            for (int i = 0; i < location.size(); ++i)
             {
+                // 조합식은 해당 if 문에서 발동함.
                 if (mask[i] == 1)
                 {
-                    exit.push_back(location[i]); // 여기에 대피소가 저장되어있음.
+                    exits.push_back(location[i]);
                 }
             }
 
-            max_distance = 0;
+            // 각 대피소별로 가장 먼 집의 거리를 저장할 곳.
+            int max_distance_for_min_distance = 0;
 
-            for (auto loc : location)
+            // 집 loop
+            for (auto& loc : location)
             {
-                for (auto ex : exit)
-                    min_distance = min(min_distance, get_distance(loc, ex)); 
-                max_distance = max(max_distance, min_distance);
+                int min_distance_for_exit = INT_MAX;
+                for (auto& exit : exits) // 대피소들과 집간의 모든 거리를 비교
+                    min_distance_for_exit = min(min_distance_for_exit, get_distance(loc, exit)); // 집별로 가장 가까운 대피소와의 거리를 저장함.
+                max_distance_for_min_distance = max(min_distance_for_exit, max_distance_for_min_distance); // 그중 가장 먼 거리를 저장함.
             }
 
-            min_distance = min(min_distance, max_distance);
-
+            // 최종적으로 각 대피소별로 가장 먼 집중, 가장 가까운 경우의 result를 저장할 곳
+            result = min(result, max_distance_for_min_distance);
         } while (next_permutation(mask.begin(), mask.end()));
 
-        return min_distance;
+        return result;
     }
 
 public:
     void run()
     {
-        std::cin >> N >> K;
+        cin >> N >> K;
 
         // 입력받기
         for (int i = 0; i < N; ++i)
         {
             int temp1, temp2;
-            std::cin >> temp1 >> temp2;
+            cin >> temp1 >> temp2;
             location.push_back({ temp1, temp2 });
         }
-        std::cout << calculate() << std::endl;
+        cout << calculate() << endl;
     }
 };
