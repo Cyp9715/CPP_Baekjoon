@@ -7,7 +7,7 @@ using namespace std;
 
 class baekjoon_28215
 {
-    int N, K; // N = ÁıÀÇ°³¼ö, K = ´ëÇÇ¼ÒÀÇ °³¼ö
+    int N, K; // N = ì§‘ì˜ê°œìˆ˜, K = ëŒ€í”¼ì†Œì˜ ê°œìˆ˜
     vector<pair<int, int>> location;
 
     int get_distance(pair<int, int>& a, pair<int, int>& b)
@@ -23,30 +23,30 @@ class baekjoon_28215
 
         do
         {
-            vector<pair<int, int>> exits; // ÀÓ½Ã ´ëÇÇ¼Ò Á¶ÇÕ½ÄÀ» ´ã¾ÆµÑ vector
+            vector<pair<int, int>> exits; // ì„ì‹œ ëŒ€í”¼ì†Œ ì¡°í•©ì‹ì„ ë‹´ì•„ë‘˜ vector
 
             for (int i = 0; i < location.size(); ++i)
             {
-                // Á¶ÇÕ½ÄÀº ÇØ´ç if ¹®¿¡¼­ ¹ßµ¿ÇÔ.
+                // ì¡°í•©ì‹ì€ í•´ë‹¹ if ë¬¸ì—ì„œ ë°œë™í•¨.
                 if (mask[i] == 1)
                 {
                     exits.push_back(location[i]);
                 }
             }
 
-            // °¢ ´ëÇÇ¼Òº°·Î °¡Àå ¸Õ ÁıÀÇ °Å¸®¸¦ ÀúÀåÇÒ °÷.
+            // ê° ëŒ€í”¼ì†Œë³„ë¡œ ê°€ì¥ ë¨¼ ì§‘ì˜ ê±°ë¦¬ë¥¼ ì €ì¥í•  ê³³.
             int max_distance_for_min_distance = 0;
 
-            // Áı loop
+            // ì§‘ loop
             for (auto& loc : location)
             {
                 int min_distance_for_exit = INT_MAX;
-                for (auto& exit : exits) // ´ëÇÇ¼Òµé°ú Áı°£ÀÇ ¸ğµç °Å¸®¸¦ ºñ±³
-                    min_distance_for_exit = min(min_distance_for_exit, get_distance(loc, exit)); // Áıº°·Î °¡Àå °¡±î¿î ´ëÇÇ¼Ò¿ÍÀÇ °Å¸®¸¦ ÀúÀåÇÔ.
-                max_distance_for_min_distance = max(min_distance_for_exit, max_distance_for_min_distance); // ±×Áß °¡Àå ¸Õ °Å¸®¸¦ ÀúÀåÇÔ.
+                for (auto& exit : exits) // ëŒ€í”¼ì†Œë“¤ê³¼ ì§‘ê°„ì˜ ëª¨ë“  ê±°ë¦¬ë¥¼ ë¹„êµ
+                    min_distance_for_exit = min(min_distance_for_exit, get_distance(loc, exit)); // ì§‘ë³„ë¡œ ê°€ì¥ ê°€ê¹Œìš´ ëŒ€í”¼ì†Œì™€ì˜ ê±°ë¦¬ë¥¼ ì €ì¥í•¨.
+                max_distance_for_min_distance = max(min_distance_for_exit, max_distance_for_min_distance); // ê·¸ì¤‘ ê°€ì¥ ë¨¼ ê±°ë¦¬ë¥¼ ì €ì¥í•¨.
             }
 
-            // ÃÖÁ¾ÀûÀ¸·Î °¢ ´ëÇÇ¼Òº°·Î °¡Àå ¸Õ ÁıÁß, °¡Àå °¡±î¿î °æ¿ìÀÇ result¸¦ ÀúÀåÇÒ °÷
+            // ìµœì¢…ì ìœ¼ë¡œ ê° ëŒ€í”¼ì†Œë³„ë¡œ ê°€ì¥ ë¨¼ ì§‘ì¤‘, ê°€ì¥ ê°€ê¹Œìš´ ê²½ìš°ì˜ resultë¥¼ ì €ì¥í•  ê³³
             result = min(result, max_distance_for_min_distance);
         } while (next_permutation(mask.begin(), mask.end()));
 
@@ -58,7 +58,7 @@ public:
     {
         cin >> N >> K;
 
-        // ÀÔ·Â¹Ş±â
+        // ì…ë ¥ë°›ê¸°
         for (int i = 0; i < N; ++i)
         {
             int temp1, temp2;

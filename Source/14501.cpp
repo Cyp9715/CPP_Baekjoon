@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #define MAX 16
 
 class baekjoon_14501

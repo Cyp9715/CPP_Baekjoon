@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <queue>
 
 // 이론상 정점의 개수는 1,000 개 이며 1 < N < 1000 이므로 1001 지정.
